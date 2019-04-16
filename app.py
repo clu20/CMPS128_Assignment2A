@@ -4,12 +4,13 @@ from flask_restful import Api, Resource
 app = Flask(__name__)
 api = Api(app)
 
-newdict = dict()
+newdict = {}
 class key_value(Resource):
 
 	def get(self, key):
 		if key in newdict:
-			return make_response(jsonify(doesExist=True, message="Retrieved successfully", value="Data Structures"), 200)
+			value = newdict[key]
+			return make_response(jsonify(doesExist=True, message="Retrieved successfully", value=value), 200)
 		else:
 			return make_response(jsonify(doesExist=False, error="Key does not exist", message="Error in GET"), 404)
 
