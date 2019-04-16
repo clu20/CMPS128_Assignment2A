@@ -1,28 +1,20 @@
 from flask import Flask,jsonify, request, make_response, g
 from flask_restful import Api, Resource
-import sqlite3
-import os
-
-PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
-
-DATABASE = os.path.join(PROJECT_ROOT, 'sql', 'dict.db')
 
 app = Flask(__name__)
 api = Api(app)
 newdict = {}
 
 class key_value(Resource):
-	def get(self, key):
 
+	def get(self, key):
 		if key in newdict:
+			#on key value found return found value
 			value = newdict[key]
 			return make_response(jsonify(doesExist=True, message="Retrieved successfully", value=value), 200)
 		else:
+			#on key value not found error
 			return make_response(jsonify(doesExist=False, error="Key does not exist", message="Error in GET"), 404)
-		# if key in thisdict:
-		# 	return make_response(jsonify(doesExist=True, message="Retrieved successfully", value="Data Structures"), 200)
-		# else:
-		# 	return make_response(jsonify(doesExist=False, error="Key does not exist", message="Error in GET"), 404)
 
 	def put(self, key):
 		if len(key) < 50:
