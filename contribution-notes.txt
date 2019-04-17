@@ -1,2 +1,5 @@
 clu20:
 	Setup get request and dockerfile
+	
+wyu19:
+	Worked with Edbel on delete requests
