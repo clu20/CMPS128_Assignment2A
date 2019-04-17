@@ -3,3 +3,6 @@ clu20:
 	
 wyu19:
 	Worked with Edbel on delete requests
+	
+tvhunter:
+	Helped setup get requests, setup put requests
