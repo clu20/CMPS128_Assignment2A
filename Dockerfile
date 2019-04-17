@@ -4,4 +4,4 @@ WORKDIR /assgn
 RUN pip install -r req.txt
 ENTRYPOINT ["python"]
 CMD ["app.py"]
-#EXPOSE 8081
+EXPOSE 8082
