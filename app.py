@@ -35,6 +35,13 @@ class key_value(Resource):
 		else:
 			return make_response(jsonify(error="Key is too long", message="Error in PUT"), 400)
 
+
+	def delete(self, key):
+		if newdict.pop(key,None) == None:
+			return make_response(jsonify(doesExist=False, error="Key does not exist", message="Error in DELETE"), 404)
+		else:
+			return make_response(jsonify(doesExist=True, message="Deleted successfully"), 200)
+
 api.add_resource(key_value, '/key-value-store/<key>')
 
 if __name__ == '__main__':
