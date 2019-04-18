@@ -6,7 +6,6 @@ api = Api(app)
 newdict = {}
 
 class key_value(Resource):
-
 	def get(self, key):
 		if key in newdict:
 			#on key value found return found value
