@@ -6,7 +6,6 @@ api = Api(app)
 newdict = {}
 
 class key_value(Resource):
-
 	def get(self, key):
 		if key in newdict:
 			#on key value found return found value
@@ -33,37 +32,7 @@ class key_value(Resource):
 				else: ##data nonexistent
 					return make_response(jsonify(error="Value is missing",message="Error in PUT"), 400)
 		else:
-<<<<<<< HEAD
-			return make_response("not in here",200)
-
-		# if key in thisdict:
-		# 	thisdict.update(key = request.args.get('value'))
-		# 	return make_response(jsonify(message="Updated successfully",replaced=True), 200)
-		# else:
-		# 	thisdict.update(key = request.args.get('value'))
-		# return make_response(jsonify(message="Added successfully",replaced=False), 201)
-
-# Query Function
-def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
-    return (rv[0] if rv else None) if one else rv
-
-
-#initialize db schemea
-# def init_db():
-#     with app.app_context():
-#         db = get_db()
-#         with app.open_resource('schema.sql', mode='r') as f:
-#             db.cursor().executescript(f.read())
-#         db.commit()
-
-
-=======
 			return make_response(jsonify(error="Key is too long", message="Error in PUT"), 400)
->>>>>>> 9c1f95a35e9115e180dbfcd977cf8fe77ba763d6
-
 
 	def delete(self, key):
 		if newdict.pop(key,None) == None:
